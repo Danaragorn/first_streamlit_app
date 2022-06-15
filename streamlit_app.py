@@ -20,3 +20,10 @@ fruits_to_show = my_fruit_list.loc[fruits_selected]
 
 # display the table on the page:
 streamlit.dataframe(fruits_to_show) # After pulling the data into a pandas dataframe called my_fruit_list, we are now asking the streamlit to display it on the page
+
+#New Section to display frutyvice api response
+streamlit.header('Fruityvice Fruit Advice!')
+
+import requests
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
+streamlit.text(fruityvice_response.json())
